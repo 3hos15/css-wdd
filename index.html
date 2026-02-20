@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cj player</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div>
+        <!-- denken aan wat ik de cd speler kan laten animeren -->
+        <!-- labels om de inputs doen aria-label="cd-on-off" geen names nodig -->
+        <nav>
+            <h1>cj player</h1>
+
+            <input type="checkbox" required name="cd-on-off">
+            <input type="checkbox" name="display-mode">
+
+            <!-- player controls -->
+            <div>
+                <label for="song-one">⏮</label> 
+                <label for="song-two">⏮</label> 
+
+                <input type="checkbox" name="play-pause">
+
+                <label for="song-two">⏭</label> 
+                <label for="song-one">⏭</label> 
+
+            </div>
+
+            <!-- hide w css for fake track playing -->
+            <input type="radio" name="track" id="song1" checked>
+            <input type="radio" name="track" id="song2">
+
+            <!-- player volume, low to max -->
+            <div> 
+                <p>-</p>
+                <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meter -->
+                <!-- values toevoegen en aria labels en daarmee stylen in css -->
+                <input type="radio" name="volume">
+                <input type="radio" name="volume">
+                <input type="radio" name="volume">
+                <input type="radio" name="volume">
+                <input type="radio" name="volume">
+                <p>+</p>
+            </div>
+        </nav>
+
+        <div>
+            <div>
+                <!-- song "progress" -->
+                <span></span>
+            </div>
+
+            <div>
+                <!-- song on display -->
+                <h2>song........</h2>
+            </div>
+            <div>
+                <!-- volume progress, color coded -->
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div>
+            <!-- cd image, more styling div?! -->
+            <img src="" alt="">
+        </div>
+
+    </div>
+</body>
+</html>
