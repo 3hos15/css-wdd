@@ -78,8 +78,12 @@ bonamic.de
 * Gradients workshop
 https://codepen.io/3hos15/pen/QwKyxdV
 
+Verschillende soort gradients gemaakt en animeren met een custom property
+
 * Advanced layout workshop
 https://codepen.io/3hos15/pen/pvEgZzz?editors=1100
+
+Uitleg over advanced grid 
 
 Holy Albatross layout
 https://css-tricks.com/holy-albatross-with-widths/
