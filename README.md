@@ -22,7 +22,7 @@ Kort presenteren over scroll driven animation
 **Wat heb ik vandaag gedaan:**
 
 presentatie css scroll driven animation, raadsel niet opgeslost, brainstormen css opdracht 
-<img src="readme-images/scrolldrivencodepen.png" width="200">
+<img src="reademe-images/scrolldrivencodepen.png" width="200">
 
 **Hoelang duurde het:**
 hele dag 
@@ -54,17 +54,17 @@ Figma is similar to css designing - there’s lots of bridges
 Tailwind chatgpt and figma - holy trinity of boredom
 
 Don’t look at pixel but at parts *
-<img src="readme-images/wnnilsone.jpg" width="200">
+<img src="reademe-images/wnnilsone.jpg" width="200">
 
 
 Use fr unit to make white space with grid
 
 Flip book made out of images, steps function - rurhsummitb *
-<img src="readme-images/wnnilsthree.jpg" width="200">
+<img src="reademe-images/wnnilsthree.jpg" width="200">
 
 
 Subgrids - grid within a grid - written on the blog*
-<img src="readme-images/wnnilstwo.jpg" width="200">
+<img src="reademe-images/wnnilstwo.jpg" width="200">
 
 
 First line selector 
