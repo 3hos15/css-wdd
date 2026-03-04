@@ -39,3 +39,38 @@ feedback presentaties
 
 ### Dag 4 – woensdag 4 maart
 
+* Weekly nerd 
+
+Nils bilder, 9elements - CSS to the rescue
+
+Ux designer en frontend developer
+
+How to combine creativeness and stricter company works
+
+They used to use photoshop to design websites 
+
+Figma is similar to css designing - there’s lots of bridges 
+
+Tailwind chatgpt and figma - holy trinity of boredom
+
+Don’t look at pixel but at parts *
+<img src="readme-images/wnnilsone.JPG" width="200">
+
+
+Use fr unit to make white space with grid
+
+Flip book made out of images, steps function - rurhsummitb *
+<img src="readme-images/wnnilsthree.JPG" width="200">
+
+
+Subgrids - grid within a grid - written on the blog*
+<img src="readme-images/wnnilstwo.JPG" width="200">
+
+
+First line selector 
+
+View transitions between different pages 
+
+Bonabry.de
+
+bonamic.de 
