@@ -4,8 +4,95 @@
     box-sizing: border-box;
 }
 
-:root {
-    --
+body {
+    margin:0;
+    height:100dvh;
+    
+    background-image:
+    conic-gradient(
+        from var(--from),
+        rgb(16, 42, 25),
+        rgb(70, 87, 69) 3% 97%,
+        rgb(16, 42, 25)
+    );
+    
+    animation:draai 2s infinite linear;
+
+    color: white;
+    /* display: grid;
+    justify-content: center;
+    align-items: center; */
+}
+
+@prop erty --from {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 45deg;
+}
+
+@keyframes draai {
+    
+    0%{
+        --from:0turn;
+    }
+    
+    100%{
+        --from:1turn
+    }
+}
+
+/* **********************************************
+----------------------------------------------
+...
+______________________________________________
+********************************************** */
+
+
+body {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+body > div {
+    background-color: rgb(75, 55, 33);
+    width: 33em;
+    height: 80dvh;
+    position: relative; 
+
+}
+
+body > div > section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: silver;
+    width: 28em;
+    height: 85dvh;
 }
 
 
+input[type="checkbox"] {
+    appearance: none;
+
+    display: block;
+    width: 2em;
+    aspect-ratio: 1;
+
+    background-color: rgb(206, 206, 206);
+    border-radius: 50%;
+    border: solid 1px grey;
+
+    box-shadow: 
+    inset .1em .1em .3em #fff,
+    inset -.1em -.1em .3em #000,
+    .1em .1em .3em #fff,
+    .1em -.1em .3em #000
+    
+    
+    
+    ;
+
+}

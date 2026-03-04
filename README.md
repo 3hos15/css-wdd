@@ -1,4 +1,17 @@
 
+**Wat heb ik vandaag gedaan:**
+
+
+**Hoelang duurde het:**
+
+
+**Wat heb ik geleerd:**
+
+
+**Wat ga ik morgen doen:**
+
+---
+
 ## Week 1
 
 ### Dag 1 - woensdag 18 feb
@@ -80,14 +93,30 @@ https://codepen.io/3hos15/pen/QwKyxdV
 
 Verschillende soort gradients gemaakt en animeren met een custom property
 
-* Advanced layout workshop
+* Advanced layout workshop<br>
 https://codepen.io/3hos15/pen/pvEgZzz?editors=1100
 
-Uitleg over advanced grid 
+Uitleg over advanced grid layout
 
-Holy Albatross layout
+Holy Albatross layout<br>
 https://css-tricks.com/holy-albatross-with-widths/
 
-Resize
+Resize <br>
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/resize
 
+**Wat heb ik vandaag gedaan:**
+Vandaag heb ik de workshops gradients en advanced layout gevolgd. De gradients workshop was makkelijk te volgen en voor mij was dit nieuwe informatie omdat ik er nog niet eerder mee heb gewerkt. Deze methode wil ik ook gaan toepassen in mijn css control panel.
+
+De advanced layout workshop vond ik iets moeilijker om te volgen. Het ging vooral over grid, waar ik wel vaker mee heb gewerkt maar dit was toch een tikkeltje moeilijker. Het was uitaard wel goede informatie die ik ook kan gebruiken, maar ik zou me nog even meer moeten inlezen om het beter te gebrijpen en zodat ik echt weet wat ik doe.
+
+Verder ben ik bezig geweest met de css opdracht. Als het goed is zit alle input/controls correct in de HTML dus ben ik begonnen met het stylen. Ik vond het nog al lastig om te zien waar ik moet beginnen, maar ik wil eersye de basis erin hebben en dat nog dieper stylen.
+<img src="reademe-images/cssopdrachtdag4.png" width="200">
+
+**Hoelang duurde het:**
+De workshops duurde in totaal ongeveer 2,5 uur en naast pauzes heb ik daarnaast aan de andere opdracht gezeten.
+
+**Wat heb ik geleerd:**
+Gradients en advanced layout.
+
+**Wat ga ik morgen doen:**
+Verder met het stylen van de css opdracht en voorbereiden op de tweede weekly nerd van de week.

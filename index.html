@@ -10,14 +10,12 @@
     <div>
         <!-- denken aan wat ik de cd speler kan laten animeren -->
         <!-- labels om de inputs doen aria-label="cd-on-off" geen names nodig -->
-        <nav>
+        <section>
             <h1>cj player</h1>
-            <label>
-                cd-on-off
+            <label aria-label="cd-on-off">
                 <input type="checkbox" required name="cd-on-off">
             </label>
-            <label>
-                display-mode
+            <label aria-label="display-mode">
                 <input type="checkbox" name="display-mode">
             </label>
 
@@ -57,36 +55,30 @@
                 <p>-</p>
                 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meter -->
                 <!-- values toevoegen en aria labels en daarmee stylen in css -->
-                <label>
-                    Mute
+                <label aria-label="mute">
                     <input type="radio" name="volume" value=0>
                 </label>
             
-                <label>
-                    Low
+                <label aria-label="low">
                     <input type="radio" name="volume" value=25>
                 </label>
             
-                <label>
-                    Medium
+                <label aria-label="medium">
                     <input type="radio" name="volume" value=50>
                 </label>
                 
-                <label>
-                    High
+                <label aria-label="high">
                     <input type="radio" name="volume" value=75>
                 </label>
                 
-                <label>
-                    Max
+                <label aria-label="max">
                     <input type="radio" name="volume" value=100>
                 </label>
 
                 <p>+</p>
             </div>
-        </nav>
 
-        <div>
+            <div>
             <div>
                 <!-- song "progress" -->
                 <span></span>
@@ -109,13 +101,13 @@
                 <meter min="0" max="100" value="75"></meter>
                 <meter min="0" max="100" value="100"></meter>
             </div>
-        </div>
+            </div>
 
-        <div>
-            <!-- cd image, more styling div?! -->
-            <img src="" alt="">
-        </div>
-
+            <div>
+                <!-- cd image, more styling div?! -->
+                <img src="" alt="">
+            </div>
+        </section>
     </div>
 </body>
 </html>
