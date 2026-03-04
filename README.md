@@ -34,7 +34,7 @@ Kort presenteren over scroll driven animation
 
 **Wat heb ik vandaag gedaan:**
 
-presentatie css scroll driven animation, raadsel niet opgeslost, brainstormen css opdracht 
+presentatie css scroll driven animation, raadsel niet opgeslost, brainstormen css opdracht <br>
 <img src="reademe-images/scrolldrivencodepen.png" width="200">
 
 **Hoelang duurde het:**
@@ -66,16 +66,16 @@ Figma is similar to css designing - there’s lots of bridges
 
 Tailwind chatgpt and figma - holy trinity of boredom
 
-Don’t look at pixel but at parts *
+Don’t look at pixel but at parts <br>
 <img src="reademe-images/wnnilsone.jpg" width="200">
 
 Use fr unit to make white space with grid
 
-Flip book made out of images, steps function - rurhsummitb *
+Flip book made out of images, steps function - rurhsummitb <br>
 <img src="reademe-images/wnnilsthree.jpg" width="200">
 
 
-Subgrids - grid within a grid - written on the blog*
+Subgrids - grid within a grid - written on the blog <br>
 <img src="reademe-images/wnnilstwo.jpg" width="200">
 
 
@@ -88,7 +88,7 @@ Bonabry.de
 bonamic.de 
 
 
-* Gradients workshop
+* Gradients workshop<br>
 https://codepen.io/3hos15/pen/QwKyxdV
 
 Verschillende soort gradients gemaakt en animeren met een custom property
@@ -109,7 +109,7 @@ Vandaag heb ik de workshops gradients en advanced layout gevolgd. De gradients w
 
 De advanced layout workshop vond ik iets moeilijker om te volgen. Het ging vooral over grid, waar ik wel vaker mee heb gewerkt maar dit was toch een tikkeltje moeilijker. Het was uitaard wel goede informatie die ik ook kan gebruiken, maar ik zou me nog even meer moeten inlezen om het beter te gebrijpen en zodat ik echt weet wat ik doe.
 
-Verder ben ik bezig geweest met de css opdracht. Als het goed is zit alle input/controls correct in de HTML dus ben ik begonnen met het stylen. Ik vond het nog al lastig om te zien waar ik moet beginnen, maar ik wil eersye de basis erin hebben en dat nog dieper stylen.
+Verder ben ik bezig geweest met de css opdracht. Als het goed is zit alle input/controls correct in de HTML dus ben ik begonnen met het stylen. Ik vond het nog al lastig om te zien waar ik moet beginnen, maar ik wil eersye de basis erin hebben en dat nog dieper stylen.<br>
 <img src="reademe-images/cssopdrachtdag4.png" width="200">
 
 **Hoelang duurde het:**
