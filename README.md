@@ -56,7 +56,6 @@ Tailwind chatgpt and figma - holy trinity of boredom
 Don’t look at pixel but at parts *
 <img src="reademe-images/wnnilsone.jpg" width="200">
 
-
 Use fr unit to make white space with grid
 
 Flip book made out of images, steps function - rurhsummitb *
@@ -74,3 +73,17 @@ View transitions between different pages
 Bonabry.de
 
 bonamic.de 
+
+
+* Gradients workshop
+https://codepen.io/3hos15/pen/QwKyxdV
+
+* Advanced layout workshop
+https://codepen.io/3hos15/pen/pvEgZzz?editors=1100
+
+Holy Albatross layout
+https://css-tricks.com/holy-albatross-with-widths/
+
+Resize
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/resize
+

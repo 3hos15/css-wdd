@@ -12,36 +12,76 @@
         <!-- labels om de inputs doen aria-label="cd-on-off" geen names nodig -->
         <nav>
             <h1>cj player</h1>
-
-            <input type="checkbox" required name="cd-on-off">
-            <input type="checkbox" name="display-mode">
+            <label>
+                cd-on-off
+                <input type="checkbox" required name="cd-on-off">
+            </label>
+            <label>
+                display-mode
+                <input type="checkbox" name="display-mode">
+            </label>
 
             <!-- player controls -->
             <div>
-                <label for="song-one">⏮</label> 
-                <label for="song-two">⏮</label> 
+                <label for="song-one">
+                    ⏮
+                    <input type="radio" name="track" id="song1">
+                </label> 
+                <label for="song-two">
+                    ⏮
+                    <input type="radio" name="track" id="song2">
+                </label> 
 
-                <input type="checkbox" name="play-pause">
+                <label>
+                    play-pause
+                    <input type="checkbox" name="play-pause">
+                </label>
 
-                <label for="song-two">⏭</label> 
-                <label for="song-one">⏭</label> 
+                <label for="song-two">
+                    ⏭
+                    <input type="radio" name="track" id="song2">
+                </label> 
+                <label for="song-one">
+                    ⏭
+                    <input type="radio" name="track" id="song1">
+                </label> 
 
             </div>
 
             <!-- hide w css for fake track playing -->
-            <input type="radio" name="track" id="song1" checked>
-            <input type="radio" name="track" id="song2">
+            <!-- <input type="radio" name="track" id="song1">
+            <input type="radio" name="track" id="song2"> -->
 
             <!-- player volume, low to max -->
             <div> 
                 <p>-</p>
                 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meter -->
                 <!-- values toevoegen en aria labels en daarmee stylen in css -->
-                <input type="radio" name="volume">
-                <input type="radio" name="volume">
-                <input type="radio" name="volume">
-                <input type="radio" name="volume">
-                <input type="radio" name="volume">
+                <label>
+                    Mute
+                    <input type="radio" name="volume" value=0>
+                </label>
+            
+                <label>
+                    Low
+                    <input type="radio" name="volume" value=25>
+                </label>
+            
+                <label>
+                    Medium
+                    <input type="radio" name="volume" value=50>
+                </label>
+                
+                <label>
+                    High
+                    <input type="radio" name="volume" value=75>
+                </label>
+                
+                <label>
+                    Max
+                    <input type="radio" name="volume" value=100>
+                </label>
+
                 <p>+</p>
             </div>
         </nav>
@@ -58,11 +98,16 @@
             </div>
             <div>
                 <!-- volume progress, color coded -->
+                <!-- <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span>
-                <span></span>
+                <span></span> -->
+                <meter min="0" max="100" value="0"></meter>
+                <meter min="0" max="100" value="25"></meter>
+                <meter min="0" max="100" value="50"></meter>
+                <meter min="0" max="100" value="75"></meter>
+                <meter min="0" max="100" value="100"></meter>
             </div>
         </div>
 
