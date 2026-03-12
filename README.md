@@ -1,14 +1,8 @@
 
-**Wat heb ik vandaag gedaan:**
-
-
-**Hoelang duurde het:**
-
-
-**Wat heb ik geleerd:**
-
-
-**Wat ga ik morgen doen:**
+**Wat heb ik vandaag gedaan:** <br>
+**Hoelang duurde het:** <br>
+**Wat heb ik geleerd:** <br>
+**Wat ga ik morgen doen:** <br>
 
 ---
 
@@ -120,3 +114,52 @@ Gradients en advanced layout.
 
 **Wat ga ik morgen doen:**
 Verder met het stylen van de css opdracht en voorbereiden op de tweede weekly nerd van de week.
+
+---
+
+### Reflectie Week 4
+
+---
+
+### Dag 4 – woensdag 11 maart
+**Wat heb ik vandaag gedaan:** <br>
+Vandaag heb ik de workshops Container style queries (voor themes) van Sanne en gekke dingen maken met Cyd gevolgd.
+
+https://codepen.io/3hos15/pen/jEMVGeG <br>
+https://codepen.io/3hos15/pen/vEXyewN <br>
+https://codepen.io/3hos15/pen/qEaqVZB <br>
+
+https://codepen.io/3hos15/pen/WbGoMQw <br>
+https://codepen.io/3hos15/pen/qEaqxog <br>
+
+
+Verder heb ik de code van de workshop van Sanne toegepast in mijn eigen code en wat verder gegaan met de styling
+
+**Hoelang duurde het:** <br>
+De workshops duurde samen ongeveer 2,5 uur
+
+**Wat heb ik geleerd:** <br>
+Bij de workshop van Sanne heb ik geleerd over stylen van een paginas met @container style(). Ik realiseerde me dat dezelfde soort code van de laatste codepen goed kan gebruiken voor mijn CSS opdracht omdat ik met values werk voor de volume van de cd speler. <br>
+
+Bij Cyd gingen we aann de slag met scroll based animations (met keyframes) en parallax. Ik had nog niet eerder een parallax gemaakt dus dit was veel nieuwe informatie maar opzich wel goed te volgen
+
+**Wat ga ik morgen doen:** <br>
+Morgen wil ik alle onderdelen van de cd speler op de goede plek krijgen op de pagina en de inputs gaan linken aan wat ze echt moeten doen, dus bijv. cd speler aan en uit en de muziek skippen.
+
+---
+
+### Dag 5 – donderdag 12 maart
+**Wat heb ik vandaag gedaan:** <br>
+Vandaag heb ik de workshops Masks van Sanna gevolgd en fonts van Vasilis gevolgd.
+https://codepen.io/3hos15/pen/ByLpypq
+https://codepen.io/3hos15/pen/vEXgEmd
+
+Daarnaast heb ik hard gewerkt aan mijn code voor CSS. Ik heb de inputs laten werken met :has en :checked. 
+
+Ook heb ik me voorbereid op de weekly nerd.
+
+**Hoelang duurde het:** <br>
+Hele dag naast een paar pauzes
+**Wat heb ik geleerd:** <br>
+Over animeren en clippen met masks en wat je allemaal kan doen met fonts 
+**Wat ga ik morgen doen:** <br>

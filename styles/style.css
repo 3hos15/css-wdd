@@ -4,77 +4,48 @@
     box-sizing: border-box;
 }
 
+:root {
+    --volume-color:
+}
+
 body {
     margin:0;
     height:100dvh;
     
-    background-image:
-    conic-gradient(
-        from var(--from),
-        rgb(16, 42, 25),
-        rgb(70, 87, 69) 3% 97%,
-        rgb(16, 42, 25)
-    );
-    
-    animation:draai 2s infinite linear;
-
+    background-color: rgb(59, 26, 50);
     color: white;
-    /* display: grid;
-    justify-content: center;
-    align-items: center; */
+
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+
 }
 
-@prop erty --from {
-    syntax: "<angle>";
-    inherits: true;
-    initial-value: 45deg;
-}
-
-@keyframes draai {
-    
-    0%{
-        --from:0turn;
-    }
-    
-    100%{
-        --from:1turn
-    }
-}
-
-/* **********************************************
+/***********************************************
 ----------------------------------------------
 ...
 ______________________________________________
 ********************************************** */
 
-
-body {
-    min-height: 100dvh;
-    display: grid;
-    place-items: center;
-}
-
 body > div {
     background-color: rgb(75, 55, 33);
-    width: 33em;
+    width: 31em;
     height: 80dvh;
     position: relative; 
-
 }
 
 body > div > section {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     background-color: silver;
-    width: 28em;
+    width: 26em;
     height: 85dvh;
 }
 
-
-input[type="checkbox"] {
+input[type="checkbox"], input[type="radio"] {
     appearance: none;
 
     display: block;
@@ -90,9 +61,319 @@ input[type="checkbox"] {
     inset -.1em -.1em .3em #000,
     .1em .1em .3em #fff,
     .1em -.1em .3em #000
-    
-    
-    
     ;
 
+    &:checked {
+        background-color: rgb(154, 154, 154);
+    }
 }
+
+img {
+    position: absolute;
+    top: 2em;
+    left: calc(50% - 10em);
+    width: 20em;
+    animation: spin 3s linear infinite;
+    animation-play-state: paused;
+    display:none;
+}
+
+section:has(label[aria-label="play-pause"] input:checked) img , section:has(label[aria-label="play-pause"] input:checked) div:has(p) p {
+    animation-play-state: running;
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+section div:has(datalist) div{
+    position: absolute;
+    /* height: 1em; */
+    height: 4em;
+    width: .7em;
+    top: 25.7em;
+    left: 23em;
+    rotate: 180deg;
+}
+
+@container style(--sound <= 25) {
+	section div:has(datalist) div {
+        background-color: rgb(0, 116, 25);
+        /* width: 1em; */
+    }
+
+    /* body {
+        background: rgb(87 74 84);
+    } */
+}
+@container style(--sound >= 25) {
+	section div:has(datalist) div {
+        background-color: yellow;
+        /* rotate: -180deg; */
+        /* height: 2em; */
+
+        /* width: 2em; */
+    }
+
+    /* body {
+        background: yellow;
+    } */
+}
+@container style(--sound >= 50) {
+    section div:has(datalist) div {
+        background-color: rgb(228 172 18);
+        /* width: 3em; */
+    }
+
+    /* body {
+        background: rgb(228 172 18);
+    } */
+}
+@container style(--sound >= 75) {
+    section div:has(datalist) div {
+        background-color: rgb(240 118 4);
+        /* width: 4em; */
+    }
+
+    /* body {
+        background: rgb(240 118 4);
+    } */
+}
+@container style(--sound = 100) {
+    section div:has(datalist) div {
+        background-color: rgb(225 32 2);
+        /* width: 5em; */
+    }
+
+    /* body {
+        background: rgb(225 32 2);
+    } */
+
+    /* img {
+        animation-duration: 2s;
+    } */
+}
+
+h1 {
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(72, 72, 72);
+    position: absolute;
+
+    top: 32.5em;
+    left: calc(50% - 3em);
+}
+
+label[aria-label="cd-on-off"] {
+    /* border: 2px solid red; */
+    position: absolute;
+
+    top: 32rem;
+    left: 9%;
+
+    input[type="checkbox"]{
+        width: 3em;
+    }
+}
+
+label[aria-label="display-mode"] {
+    position: absolute;
+
+    top: 37.2rem;
+    left: 3%;
+
+    input[type="checkbox"]{
+        width: 1.5em;
+    }
+}
+
+input[type="radio"]{
+    width: 1.8em;
+}
+
+label[aria-label="prev-one"] {
+    position: absolute;
+
+    top: 37em;
+    left: 36%;
+}
+
+label[aria-label="prev-two"] {
+    position: absolute;
+
+    top: 38em;
+    left: 36%;
+}
+
+label[aria-label="next-one"] {
+    position: absolute;
+
+    top: 37em;
+    left: 55%;
+}
+
+label[aria-label="next-two"] {
+    position: absolute;
+
+    top: 38em;
+    left: 55%;
+}
+
+label[aria-label="play-pause"] {
+    position: absolute;
+
+    top: 37em;
+    left: calc(50% - 1.3em);
+}
+
+
+input[type="range"] {
+    appearance: none;
+    background: transparent;
+    width: 7em;
+
+
+}
+
+label[aria-label="volume"] {
+    width: 5em;
+    position: absolute;
+
+    top: 37em;
+    left: 72%;
+}
+
+/* Aan chatgpt gevraagd hoe je input type range stylet voor verschillende browsers https://chatgpt.com/share/69b2a973-0720-8002-858e-4c57c11bccf6 */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 0.4em;
+    background: grey;
+    border-radius: 1em;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 0.4em;
+    background: grey;
+    border-radius: 1em;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    background: #ddd;
+    box-shadow:
+        inset .1em .1em .3em #fff,
+        inset -.1em -.1em .3em #000,
+        .1em .1em .3em #fff,
+        .1em -.1em .3em #000;
+
+        margin-top: -0.4em; 
+
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid black;
+}
+
+section div:has(p) {
+    position: relative;
+    width: 18em;  
+    height: 1.5em;   
+    overflow: hidden; 
+    background-color: rgb(40, 40, 40);
+    z-index: 99999;
+
+    top: 28em;
+    left: 7%;;
+}
+
+section div:has(p) p {
+    font-family: "Bitcount Grid Double";
+    color: rgb(0, 151, 0);
+    position: absolute;
+    white-space: nowrap;
+    display: inline-block;
+    padding-left: 100%; 
+    animation: titlemove 7s linear infinite;
+    animation-play-state: paused;
+    display: none;
+    font-weight: 200;
+}
+
+@keyframes titlemove {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+section:has(label[aria-label="cd-on-off"] input:checked) img , section:has(label[aria-label="cd-on-off"] input:checked) div:has(p) p {
+    display: block;
+}
+
+
+section > div:nth-of-type(6) {
+    position: absolute;
+    width: 30em;    
+    height: .8em;
+    background-color: rgb(163 163 163);
+    top: 14.6em;
+    left: -14.6em;
+    rotate: 90deg;
+}
+
+section > div:nth-of-type(7) {
+    position: absolute;
+    width: 25.2em;    
+    height: 6em;
+    background-color: rgb(128 127 127);
+    top: 25.5em;
+    left: .8em;
+    z-index: -2;
+}
+
+section > div:nth-of-type(8) {
+    position: absolute;
+    width: 25.2em;    
+    height: 25.5em;
+    background-color: rgb(103 121 181 /.2);
+    background-image: linear-gradient(
+        to right,
+        transparent,
+        rgb(103 121 181 / .2) 50%,
+        transparent
+    );
+    top: 0em;
+    left: .8em;
+    z-index: -2;
+}
+
+section > div:nth-of-type(9) {
+    
+}
+
+section > div:last-child {
+    position: absolute;
+    width: 26em;  
+    height: 9.3em;   
+    background-color: silver;
+    z-index: -2;
+
+    top: 30em;
+    left: 0;
+
+    box-shadow: inset 0 0 1em rgb(223 222 222);
+}
+/* section:has(label[aria-label="display-mode"] input:checked) img {
+
+}  */
+
+
+

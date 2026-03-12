@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cj player</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Bitcount+Prop+Single+Ink:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div>
@@ -13,101 +16,73 @@
         <section>
             <h1>cj player</h1>
             <label aria-label="cd-on-off">
-                <input type="checkbox" required name="cd-on-off">
+                <input type="checkbox" required>
             </label>
             <label aria-label="display-mode">
-                <input type="checkbox" name="display-mode">
+                <input type="checkbox">
             </label>
 
-            <!-- player controls -->
             <div>
-                <label for="song-one">
-                    ⏮
+                <label for="song-one" aria-label="prev-one">
+                    
                     <input type="radio" name="track" id="song1">
                 </label> 
-                <label for="song-two">
-                    ⏮
+                <label for="song-two" aria-label="prev-two">
+                    
                     <input type="radio" name="track" id="song2">
                 </label> 
 
-                <label>
-                    play-pause
-                    <input type="checkbox" name="play-pause">
+                <label aria-label="play-pause">
+                    <input type="checkbox">
                 </label>
 
-                <label for="song-two">
-                    ⏭
+                <label for="song-two" aria-label="next-one">
+                    
                     <input type="radio" name="track" id="song2">
                 </label> 
-                <label for="song-one">
-                    ⏭
+                <label for="song-one" aria-label="next-two">
+                    
                     <input type="radio" name="track" id="song1">
                 </label> 
 
             </div>
 
-            <!-- hide w css for fake track playing -->
-            <!-- <input type="radio" name="track" id="song1">
-            <input type="radio" name="track" id="song2"> -->
-
-            <!-- player volume, low to max -->
-            <div> 
-                <p>-</p>
-                <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meter -->
-                <!-- values toevoegen en aria labels en daarmee stylen in css -->
-                <label aria-label="mute">
-                    <input type="radio" name="volume" value=0>
-                </label>
-            
-                <label aria-label="low">
-                    <input type="radio" name="volume" value=25>
-                </label>
-            
-                <label aria-label="medium">
-                    <input type="radio" name="volume" value=50>
-                </label>
-                
-                <label aria-label="high">
-                    <input type="radio" name="volume" value=75>
-                </label>
-                
-                <label aria-label="max">
-                    <input type="radio" name="volume" value=100>
+            <div>
+                <label aria-label="volume">
+                    <input type="range" value="0" min="0" max="100" list="volume" name="sound">
                 </label>
 
-                <p>+</p>
-            </div>
+                <datalist id="volume">
+                    <option value="0">0</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                    <option value="100">100</option>
+                </datalist>
 
-            <div>
-            <div>
-                <!-- song "progress" -->
-                <span></span>
-            </div>
-
-            <div>
-                <!-- song on display -->
-                <h2>song........</h2>
-            </div>
-            <div>
-                <!-- volume progress, color coded -->
-                <!-- <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span> -->
-                <meter min="0" max="100" value="0"></meter>
-                <meter min="0" max="100" value="25"></meter>
-                <meter min="0" max="100" value="50"></meter>
-                <meter min="0" max="100" value="75"></meter>
-                <meter min="0" max="100" value="100"></meter>
-            </div>
+                <div aria-label="volume-tracker"></div>
             </div>
 
             <div>
                 <!-- cd image, more styling div?! -->
-                <img src="" alt="">
+                <img src="images/typeonegative.png" alt="">
             </div>
+            <div aria-label="song-tracker" >
+                <!-- track info -->
+                <p>currentsongblaaaaaablaaablaaaablaaa</p>
+            </div>
+            <div aria-label="song-progress">
+                <div></div>
+            </div>
+
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <div></div>
         </section>
     </div>
+    <script src="script/main.js"></script>
 </body>
 </html>
