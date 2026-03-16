@@ -158,6 +158,9 @@ Daarnaast heb ik hard gewerkt aan mijn code voor CSS. Ik heb de inputs laten wer
 
 Ook heb ik me voorbereid op de weekly nerd.
 
+
+
+
 **Hoelang duurde het:** <br>
 Hele dag naast een paar pauzes
 **Wat heb ik geleerd:** <br>
