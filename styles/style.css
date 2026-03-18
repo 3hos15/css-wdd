@@ -135,73 +135,47 @@ section:has(label[aria-label="play-pause"] input:checked) img , section:has(labe
     }
 }
 
-section div:has(datalist) div{
+section div:has(datalist) div {
     position: absolute;
-    /* height: 1em; */
-    height: 4em;
-    width: .7em;
-    top: 25.7em;
-    left: 23em;
-    rotate: 180deg;
-
+    height: 0.7em;
+    width: 0.5em;
+    top: 28.3em;
+    left: 20.4em;
+    border-radius: 2px;
+    background-color: rgb(0, 116, 25);
+    transform-origin: left;
+    transition:  0.2s ease;
 }
 
 @container style(--sound <= 25) {
-	section div:has(datalist) div {
-        background-color: rgb(0, 116, 25);
-        /* width: 1em; */
+    section div:has(datalist) div {
+        width: 1em;
+        background-color: #007419;
     }
-
-    /* body {
-        background: rgb(87 74 84);
-    } */
 }
 @container style(--sound >= 25) {
-	section div:has(datalist) div {
-        background-color: yellow;
-        /* rotate: -180deg; */
-        /* height: 2em; */
-
-        /* width: 2em; */
+    section div:has(datalist) div {
+        width: 2em;
+        background-color: #ffff00;
     }
-
-    /* body {
-        background: yellow;
-    } */
 }
 @container style(--sound >= 50) {
     section div:has(datalist) div {
-        background-color: rgb(228 172 18);
-        /* width: 3em; */
+        width: 3em;
+        background-color: #e4ac12;
     }
-
-    /* body {
-        background: rgb(228 172 18);
-    } */
 }
 @container style(--sound >= 75) {
     section div:has(datalist) div {
-        background-color: rgb(240 118 4);
-        /* width: 4em; */
+        width: 4em;
+        background-color: #f07604;
     }
-
-    /* body {
-        background: rgb(240 118 4);
-    } */
 }
 @container style(--sound = 100) {
     section div:has(datalist) div {
-        background-color: rgb(225 32 2);
-        /* width: 5em; */
+        width: 5em;
+        background-color: #e12002;
     }
-
-    /* body {
-        background: rgb(225 32 2);
-    } */
-
-    /* img {
-        animation-duration: 2s;
-    } */
 }
 
 h1 {
@@ -215,7 +189,6 @@ h1 {
 }
 
 label[aria-label="cd-on-off"] {
-    /* border: 2px solid red; */
     position: absolute;
 
     top: 32rem;
@@ -248,12 +221,6 @@ label[aria-label="prev-one"] {
     left: 36%;
 }
 
-label[aria-label="prev-two"] {
-    position: absolute;
-
-    top: 38em;
-    left: 36%;
-}
 
 label[aria-label="next-one"] {
     position: absolute;
@@ -262,12 +229,6 @@ label[aria-label="next-one"] {
     left: 55%;
 }
 
-label[aria-label="next-two"] {
-    position: absolute;
-
-    top: 38em;
-    left: 55%;
-}
 
 label[aria-label="play-pause"] {
     position: absolute;
@@ -349,7 +310,7 @@ section div:has(p) {
 
 section div:has(p) p {
     font-family: "Bitcount Grid Double";
-    color: rgb(0, 151, 0);
+    color: rgb(1, 195, 1);
     position: absolute;
     white-space: nowrap;
     display: inline-block;
@@ -366,9 +327,31 @@ section div:has(p) p {
     }
 }
 
-section:has(label[aria-label="cd-on-off"] input:checked) img , section:has(label[aria-label="cd-on-off"] input:checked) div:has(p) p {
+section:has(label[aria-label="cd-on-off"] input:checked) img , 
+section:has(label[aria-label="cd-on-off"] input:checked) div:has(p) p {
     display: block;
 }
+
+/* section:has(label[aria-label="cd-on-off"] input:checked) img {
+    display: block;
+    animation: slideInTop 0.8s ease forwards;
+}
+
+section:has(label[aria-label="cd-on-off"] input:checked) div:has(p) p {
+    display: block;
+    animation-play-state: running;
+}
+
+@keyframes slideInTop {
+    0% {
+        transform: translateY(-5em);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    }
+} */
 
 /* lange strook langs display zijkant */
 section > div:nth-of-type(6) {
@@ -391,7 +374,7 @@ section > div:nth-of-type(7) {
     background-color: rgb(128 127 127);
     top: 25.5em;
     left: .8em;
-    z-index: -2;
+    z-index: -6;
 }
 
 /* glazen bg */
@@ -441,7 +424,7 @@ section > div:nth-of-type(8)::after {
 
 /* skewed stukje boven display */
 section > div:nth-of-type(9) {
-    position: absolute;
+    position: relative;
     background-color: rgb(88, 85, 83);
     width: 25.2em;    
     height: 2.5em;
@@ -449,13 +432,20 @@ section > div:nth-of-type(9) {
     left: 2em;
     transform: skew(-45deg);
     z-index: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
 
     /* box-shadow: 10px 10px -1px 10px rgba(255, 255, 255, 0.696); */
     box-shadow: 
         inset 1px 8px 10px -5px rgba(0, 0, 0, 0.3),
         inset 6px 0 8px -6px rgba(0, 0, 0, 0.2);   ;
 
+    clip-path:
+    polygon(
+        0% 0%, 
+        90.2% 0%, 
+        100% 100%, 
+        0% 100%
+    );
 
 }
 
@@ -483,7 +473,32 @@ section > div:nth-of-type(11) {
 }
 
 section > div:nth-of-type(12) {
+    position: absolute;
+    background-color: rgb(215, 215, 215);
+    width: 4.5em;    
+    height: 4.5em;
+    border-radius: 50%;
+    top: 9.3em;
+    left: 12.1em;
 
+    box-shadow: 
+    inset 0.3em 0.3em 0.6em rgba(0,0,0,0.4),
+    inset -0.3em -0.3em 0.6em rgba(255,255,255,0.5);
+    /* z-index: 9; */
+}
+
+section > div:nth-of-type(13) {
+    position: absolute;
+    background-color: rgb(155, 155, 155);
+    width: 2.2em;    
+    height: 2.2em;
+    border-radius: 50%;
+    top: 10.4em;
+    left: 13.2em;
+    /* z-index: 9; */
+    box-shadow: 
+    0.1em 0.1em 0.2em rgba(0,0,0,0.4),  
+    inset 0 -0.1em 0.1em rgba(0,0,0,0.2); 
 }
 
 /* control panel */
@@ -505,10 +520,16 @@ section > div:last-child {
 
 
 
+section:has(label[aria-label="prev-one"] input:checked) img:nth-of-type(2),
+section:has(label[aria-label="prev-one"] input:checked) p:nth-of-type(2) {
+    display: none;
+}
+
+section:has(label[aria-label="next-one"] input:checked) img:nth-of-type(1),
+section:has(label[aria-label="next-one"] input:checked) p:nth-of-type(1) {
+    display: none;
+}
 /* section:has(label[aria-label="display-mode"] input:checked) img {
 
 }  */
-
-
-
 
