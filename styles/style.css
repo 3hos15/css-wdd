@@ -12,7 +12,7 @@ body {
     margin:0;
     height:100dvh;
     
-    background-color: rgb(59, 26, 50);
+    background-color: rgb(227, 195, 162);
     color: white;
 
     min-height: 100dvh;
@@ -28,10 +28,47 @@ ______________________________________________
 ********************************************** */
 
 body > div {
-    background-color: rgb(75, 55, 33);
     width: 31em;
     height: 80dvh;
-    position: relative; 
+    position: relative;
+    
+    /* background-color: #9b8964; */
+    
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            #8b6646 0px,
+            #8b6646 2px,
+            #6b4f33 3px,
+            #6b4f33 5px
+        ),
+        repeating-linear-gradient(
+            20deg,
+            #523c26 0px,
+            #523c26 1px,
+            #6b4f33 2px,
+            #6b4f33 4px
+        ),
+        linear-gradient(
+            to bottom,
+            #6b4f33 0%,
+            #5f452d 50%,
+            #6b4f33 100%
+        ),
+        linear-gradient(
+            45deg,
+            rgba(255,255,255,0.05) 0%,
+            rgba(255,255,255,0.05) 50%,
+            transparent 51%
+        );
+    
+    background-blend-mode: overlay;
+    background-size: auto;
+    
+    box-shadow: 
+        inset 0 4px 12px rgba(82,60,38,0.7),
+        inset 0 -4px 10px rgba(95,69,45,0.6),
+        0 2px 6px rgba(0,0,0,0.2);
 }
 
 body > div > section {
@@ -62,16 +99,25 @@ input[type="checkbox"], input[type="radio"] {
     .1em .1em .3em #fff,
     .1em -.1em .3em #000
     ;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+
 
     &:checked {
-        background-color: rgb(154, 154, 154);
+        background-color: rgb(206, 206, 206);
+        box-shadow: 
+        inset .05em .05em .15em #000,  
+        inset -.05em -.05em .15em #fff, 
+        .1em .1em .3em #fff,          
+        .1em -.1em .3em #000;    
     }
 }
 
 img {
     position: absolute;
-    top: 2em;
-    left: calc(50% - 10em);
+    top: 1.6em;
+    left: calc(50% - 8.5em);
     width: 20em;
     animation: spin 3s linear infinite;
     animation-play-state: paused;
@@ -97,6 +143,7 @@ section div:has(datalist) div{
     top: 25.7em;
     left: 23em;
     rotate: 180deg;
+
 }
 
 @container style(--sound <= 25) {
@@ -246,6 +293,11 @@ label[aria-label="volume"] {
     left: 72%;
 }
 
+input[type="range"] {
+    cursor: pointer;
+
+}
+
 /* Aan chatgpt gevraagd hoe je input type range stylet voor verschillende browsers https://chatgpt.com/share/69b2a973-0720-8002-858e-4c57c11bccf6 */
 input[type="range"]::-webkit-slider-runnable-track {
     height: 0.4em;
@@ -288,7 +340,7 @@ section div:has(p) {
     width: 18em;  
     height: 1.5em;   
     overflow: hidden; 
-    background-color: rgb(40, 40, 40);
+    background-color: #282828;
     z-index: 99999;
 
     top: 28em;
@@ -318,7 +370,7 @@ section:has(label[aria-label="cd-on-off"] input:checked) img , section:has(label
     display: block;
 }
 
-
+/* lange strook langs display zijkant */
 section > div:nth-of-type(6) {
     position: absolute;
     width: 30em;    
@@ -327,8 +379,11 @@ section > div:nth-of-type(6) {
     top: 14.6em;
     left: -14.6em;
     rotate: 90deg;
+    box-shadow: 0px 0 6px -1px rgba(0, 0, 0, 0.498);
+    z-index: -4;
 }
 
+/* display */
 section > div:nth-of-type(7) {
     position: absolute;
     width: 25.2em;    
@@ -339,41 +394,121 @@ section > div:nth-of-type(7) {
     z-index: -2;
 }
 
+/* glazen bg */
 section > div:nth-of-type(8) {
     position: absolute;
     width: 25.2em;    
-    height: 25.5em;
-    background-color: rgb(103 121 181 /.2);
-    background-image: linear-gradient(
-        to right,
-        transparent,
-        rgb(103 121 181 / .2) 50%,
-        transparent
-    );
+    height: 30em;
     top: 0em;
     left: .8em;
-    z-index: -2;
+    z-index: 999999;
+
+
+    background: 
+    linear-gradient(
+        to bottom,
+        #ffffff59 0%,
+        #ffffff26 20%,
+        #ffffff0d 40%,
+        #0000000d 100%
+    ),
+    linear-gradient(
+        to bottom right,
+        #ffffff33,
+        #00000033
+    );
+
+    backdrop-filter: blur(.7px);  
+
 }
 
+
+section > div:nth-of-type(8)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff1f 0%, 
+        #ffffff14 30%,
+        transparent 100%
+        );
+
+    pointer-events: none;
+}
+
+/* skewed stukje boven display */
 section > div:nth-of-type(9) {
-    
+    position: absolute;
+    background-color: rgb(88, 85, 83);
+    width: 25.2em;    
+    height: 2.5em;
+    top: 23em;
+    left: 2em;
+    transform: skew(-45deg);
+    z-index: 0;
+    /* overflow: hidden; */
+
+    /* box-shadow: 10px 10px -1px 10px rgba(255, 255, 255, 0.696); */
+    box-shadow: 
+        inset 1px 8px 10px -5px rgba(0, 0, 0, 0.3),
+        inset 6px 0 8px -6px rgba(0, 0, 0, 0.2);   ;
+
+
 }
 
+/* stukje naast display */
+section > div:nth-of-type(10) {
+    position: absolute;
+    background-color: rgb(118, 118, 118);
+    width: 3.3em;    
+    height: 26.5em;
+    top: 0em;
+    left: 0em;
+    z-index: -5;
+
+}
+
+/* lid */
+section > div:nth-of-type(11) {
+    position: absolute;
+    background-color: rgb(148, 148, 148);
+    width: 31em;    
+    height:.6em;
+    top: -.1em;
+    left: -2.5em;
+    z-index: 999999;
+}
+
+section > div:nth-of-type(12) {
+
+}
+
+/* control panel */
 section > div:last-child {
     position: absolute;
     width: 26em;  
     height: 9.3em;   
-    background-color: silver;
+    background-color: #bababa;
     z-index: -2;
 
     top: 30em;
     left: 0;
 
-    box-shadow: inset 0 0 1em rgb(223 222 222);
+    box-shadow: 
+        0px 2px 10px 0 #00000066,  
+        inset 0px 2px 6px #00000033,  
+        inset 0px -2px 6px #00000026;
 }
+
+
+
 /* section:has(label[aria-label="display-mode"] input:checked) img {
 
 }  */
+
 
 
 
