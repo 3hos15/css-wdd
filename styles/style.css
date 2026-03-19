@@ -119,7 +119,7 @@ img {
     top: 1.6em;
     left: calc(50% - 8.5em);
     width: 20em;
-    animation: spin 3s linear infinite;
+    animation: spin 2s linear infinite, slideInTop 1s ease;
     animation-play-state: paused;
     display:none;
 }
@@ -306,6 +306,7 @@ section div:has(p) {
 
     top: 28em;
     left: 7%;;
+    
 }
 
 section div:has(p) p {
@@ -327,31 +328,26 @@ section div:has(p) p {
     }
 }
 
-section:has(label[aria-label="cd-on-off"] input:checked) img , 
+section:has(label[aria-label="cd-on-off"] input:checked) img, 
 section:has(label[aria-label="cd-on-off"] input:checked) div:has(p) p {
     display: block;
 }
 
-/* section:has(label[aria-label="cd-on-off"] input:checked) img {
+section:has(label[aria-label="cd-on-off"] input:checked) img {
     display: block;
-    animation: slideInTop 0.8s ease forwards;
-}
-
-section:has(label[aria-label="cd-on-off"] input:checked) div:has(p) p {
-    display: block;
-    animation-play-state: running;
 }
 
 @keyframes slideInTop {
     0% {
-        transform: translateY(-5em);
+        transform: translateY(-30em);
         opacity: 0;
     }
     100% {
         transform: translateY(0); 
-        opacity: 1;
+        opacity: 1; 
     }
-} */
+}
+
 
 /* lange strook langs display zijkant */
 section > div:nth-of-type(6) {
