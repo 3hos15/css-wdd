@@ -1,3 +1,4 @@
+// Code van Sanne voor de range
 const ranges = document.querySelectorAll('[type="range"]');
 
 const updateRange = range => {
