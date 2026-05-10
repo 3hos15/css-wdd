@@ -149,6 +149,7 @@ https://codepen.io/3hos15/pen/qEaqxog <br>
 
 Verder heb ik de code van de workshop van Sanne toegepast in mijn eigen code en wat verder gegaan met de styling
 
+
 **Wat heb ik geleerd:** <br>
 Bij de workshop van Sanne heb ik geleerd over stylen van een paginas met @container style(). Ik realiseerde me dat dezelfde soort code van de laatste codepen goed kan gebruiken voor mijn CSS opdracht omdat ik met values werk voor de volume van de cd speler. <br>
 
@@ -190,3 +191,31 @@ Naast de workshops ben ik veel bezig geweest met mijn eigen code. Een belangrijk
 Wat goed ging deze week, is dat ik technieken uit de workshops direct heb geprobeerd toe te passen in mijn eigen project. Hierdoor bleef de stof beter hangen en zag ik ook meteen het nut ervan. Ook ben ik een stuk verder gekomen met de functionaliteit van mijn control panel, wat mij meer vertrouwen geeft in mijn voortgang.
 
 Wat ik volgende week beter wil doen, is nog meer structuur aanbrengen in mijn code. Doordat ik veel nieuwe dingen uitprobeer, wordt mijn CSS soms wat rommelig. Daarnaast wil ik beter plannen welke onderdelen ik wanneer ga maken, zodat ik gerichter kan werken in plaats van alles een beetje door elkaar te doen.
+
+---
+
+### 22 april
+Kort gesprek gehad en mijn werk laten zien. Hierin heb laten zien dat ik grid heb toegepast om het ook responsive te maken. Verder hadden we besproken dat ik ook nog een tweede thema erin moet hebben.
+
+--- 
+
+### Reflectie op het vak
+Tijdens dit vak heb ik veel geleerd over hoe uitgebreid CSS eigenlijk kan zijn en hoeveel interactie je ermee kunt bouwen zonder JavaScript te gebruiken. Aan het begin van het vak dacht ik vooral aan CSS als iets waarmee je een website mooi maakt, maar tijdens deze weken heb ik ontdekt dat CSS ook gebruikt kan worden voor animaties, interactie en complexere layouts.
+
+In de eerste week was ik nog erg zoekende in mijn proces. Ik begon meteen met coderen, maar merkte al snel dat mijn eerste idee voor het control panel niet sterk genoeg was. In plaats van hiermee door te gaan, heb ik ervoor gekozen om opnieuw te beginnen en eerst een ontwerp in Figma te maken. Dit hielp mij om mijn idee beter te visualiseren voordat ik verder ging met ontwikkelen. Hier heb ik geleerd dat een goede voorbereiding veel tijd kan besparen tijdens het coderen.
+
+Tijdens de weken daarna heb ik veel nieuwe technieken geleerd door de workshops en weekly nerds. Ik heb gewerkt met scroll driven animations, gradients, advanced layouts, container queries, masks, fonts en parallax animations. Sommige technieken waren makkelijker te begrijpen dan andere. Vooral advanced layout vond ik lastig, omdat het verder ging dan de grid-technieken die ik al kende. Toch vond ik het waardevol om hiermee kennis te maken, omdat het liet zien hoeveel mogelijkheden er zijn binnen CSS.
+
+Wat ik sterk vond aan mijn proces is dat ik technieken uit de workshops direct probeerde toe te passen in mijn eigen project. Hierdoor bleef de stof beter hangen en kreeg mijn control panel steeds meer functionaliteit. Een voorbeeld hiervan is het gebruik van :has() en :checked, waarmee ik onderdelen van mijn cd-speler interactief heb gemaakt zonder JavaScript te gebruiken. Ook heb ik grid toegepast om mijn project responsive te maken en tijdens het feedbackmoment kreeg ik nog mee dat ik een tweede thema moest toevoegen, waardoor ik opnieuw kritisch naar mijn ontwerp moest kijken.
+
+Wat ik soms lastig vond tijdens dit vak was structuur houden in mijn code en proces. Omdat ik veel nieuwe technieken wilde uitproberen, werkte ik soms vrij chaotisch en wist ik niet altijd goed waar ik moest beginnen. Hierdoor verloor ik soms tijd. Ik heb gemerkt dat het voor mij beter werkt om eerst duidelijk te plannen, ontwerpen en prioriteiten te stellen voordat ik direct begin met bouwen.
+
+Als ik opnieuw aan dit vak zou beginnen, zou ik eerder keuzes maken en sneller testen of een idee haalbaar is. Ook zou ik mijn code vanaf het begin netter structureren zodat het makkelijker blijft om later dingen aan te passen.
+
+---
+
+## Bronnen
+- animation delay calc https://css-irl.info/quick-tip-negative-animation-delay/
+- volume range Sanne https://codepen.io/3hos15/pen/qEaqVZB
+- webkit moz slider aanpassingen: Aan chatgpt gevraagd hoe je input type range stylet voor verschillende browsers https://chatgpt.com/share/69b2a973-0720-8002-858e-4c57c11bccf6 
+- 

@@ -1,531 +1,839 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --volume-color:
-}
-
-body {
-    margin:0;
-    height:100dvh;
-    
-    background-color: rgb(227, 195, 162);
-    color: white;
-
-    min-height: 100dvh;
-    display: grid;
-    place-items: center;
-
-}
-
-/***********************************************
-----------------------------------------------
-...
-______________________________________________
-********************************************** */
-
-body > div {
-    width: 31em;
-    height: 80dvh;
-    position: relative;
-    
-    /* background-color: #9b8964; */
-    
-    background-image: 
-        repeating-linear-gradient(
-            0deg,
-            #8b6646 0px,
-            #8b6646 2px,
-            #6b4f33 3px,
-            #6b4f33 5px
-        ),
-        repeating-linear-gradient(
-            20deg,
-            #523c26 0px,
-            #523c26 1px,
-            #6b4f33 2px,
-            #6b4f33 4px
-        ),
-        linear-gradient(
-            to bottom,
-            #6b4f33 0%,
-            #5f452d 50%,
-            #6b4f33 100%
-        ),
-        linear-gradient(
-            45deg,
-            rgba(255,255,255,0.05) 0%,
-            rgba(255,255,255,0.05) 50%,
-            transparent 51%
-        );
-    
-    background-blend-mode: overlay;
-    background-size: auto;
-    
-    box-shadow: 
-        inset 0 4px 12px rgba(82,60,38,0.7),
-        inset 0 -4px 10px rgba(95,69,45,0.6),
-        0 2px 6px rgba(0,0,0,0.2);
-}
-
-body > div > section {
-    position: absolute;
-    top: 52%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    background-color: silver;
-    width: 26em;
-    height: 85dvh;
-}
-
-input[type="checkbox"], input[type="radio"] {
-    appearance: none;
-
-    display: block;
-    width: 2em;
-    aspect-ratio: 1;
-
-    background-color: rgb(206, 206, 206);
-    border-radius: 50%;
-    border: solid 1px grey;
-
-    box-shadow: 
-    inset .1em .1em .3em #fff,
-    inset -.1em -.1em .3em #000,
-    .1em .1em .3em #fff,
-    .1em -.1em .3em #000
-    ;
-    cursor: pointer;
-    transition: all 0.2s ease;
+@layer reset, customp, layout, components, states, animations;
 
 
+/* ============================================================
+   RESET
+   ============================================================ */
+@layer reset {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
 
-    &:checked {
-        background-color: rgb(206, 206, 206);
-        box-shadow: 
-        inset .05em .05em .15em #000,  
-        inset -.05em -.05em .15em #fff, 
-        .1em .1em .3em #fff,          
-        .1em -.1em .3em #000;    
+    body {
+        margin: 0;
+        height: 100dvh;
+        color: white;
+        display: grid;
+        place-items: center;
     }
 }
 
-img {
-    position: absolute;
-    top: 1.6em;
-    left: calc(50% - 8.5em);
-    width: 20em;
-    animation: spin 2s linear infinite, slideInTop 1s ease;
-    animation-play-state: paused;
-    display:none;
-}
 
-section:has(label[aria-label="play-pause"] input:checked) img , section:has(label[aria-label="play-pause"] input:checked) div:has(p) p {
-    animation-play-state: running;
-}
+/* ============================================================
+   CUSTOM PROPERTIES
+   ============================================================ */
+@layer customp {
+    :root {
+        /* Wood grain */
+        --color-wood-light: #8b6646;
+        --color-wood-mid:   #6b4f33;
+        --color-wood-dark:  #523c26;
+        --color-wood-deep:  #5f452d;
 
+        /* Silver panel */
+        --color-panel-silver:     silver;
+        --color-panel-light:      rgb(163, 163, 163);
+        --color-panel-mid:        rgb(128, 127, 127);
+        --color-panel-grey:       grey;
+        --color-panel-dark:       rgb(88, 85, 83);
+        --color-panel-strip:      rgb(118, 118, 118);
+        --color-panel-bottom:     #bababa;
+        --color-panel-knob:       rgb(215, 215, 215);
+        --color-panel-knob-inner: rgb(155, 155, 155);
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+        /* Buttons */
+        --color-btn-default: rgb(206, 206, 206);
+        --color-btn-track:   #ddd;
+
+        /* Display */
+        --color-display-bg:   #282828;
+        --color-display-text: rgb(1, 255, 1);
+
+        /* Volume meter thresholds */
+        --color-volume-low:     #007419;
+        --color-volume-mid-low: #ffff00;
+        --color-volume-mid:     #e4ac12;
+        --color-volume-high:    #f07604;
+        --color-volume-max:     #e12002;
     }
 }
 
-section div:has(datalist) div {
-    position: absolute;
-    height: 0.7em;
-    width: 0.5em;
-    top: 28.3em;
-    left: 20.4em;
-    border-radius: 2px;
-    background-color: rgb(0, 116, 25);
-    transform-origin: left;
-    transition:  0.2s ease;
-}
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+@layer layout {
+    body {
+        background: radial-gradient(ellipse at center, #e8d4b8 0%, #c49a6c 60%, #8b6646 100%);
+        transition: background 0.6s ease;
+        overflow: hidden;
+    }
 
-@container style(--sound <= 25) {
-    section div:has(datalist) div {
-        width: 1em;
-        background-color: #007419;
+    main {
+        scale: 1.2;
+        display: grid;
+        grid-template-columns: 2vmin 70vmin 2vmin;
+        grid-template-rows: 2vmin 70vmin 5vmin;
+        transition: 400ms cubic-bezier(.34, 1.56, .64, 1);
+
+        @media (width > 32em) {
+            grid-template-columns: 10vmin 50vmin 10vmin;
+        }
+    }
+
+    /* Top silver strip */
+    main > section:nth-of-type(1) {
+        grid-column: 1 / 4;
+    }
+
+    /* Wood side panels */
+    main > section:nth-of-type(2) {
+        grid-column: 1 / 4;
+        grid-row: 2;
+    }
+
+    /* Main silver panel */
+    main > section:nth-of-type(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+        display: grid;
+        grid-template-columns: 2vmin 1fr 2vmin;
+        grid-template-rows: 1fr 8vmin 17vmin;
+    }
+
+    /* Left long side */
+    section > div:nth-of-type(1) {
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+
+    /* Right long side */
+    section > div:nth-of-type(2) {
+        grid-column: 3;
+        grid-row: 1 / 3;
+    }
+
+    /* Player area */
+    div:nth-of-type(3) {
+        grid-column: 2;
+        grid-row: 1;
+        position: relative;
+    }
+
+    /* CD img */
+    div:has(> img) {
+        display: grid;
+        grid-template-columns: calc(8vmin * 1) 1fr calc(8vmin * 0.1);
+        grid-template-rows: 1fr 19em 1fr;
+        animation: slideInTop 1s ease forwards;
+        animation-play-state: paused;
+    }
+
+    div:has(> img) img {
+        grid-area: 2 / 2;
+        align-self: center;
+        justify-self: center;
+        animation: spin 2s linear infinite;
+        animation-play-state: paused;
+    }
+
+    /* Display */
+    div:nth-of-type(4) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    /* Control pannel */
+    div:nth-of-type(5) {
+        grid-column: 1 / 4;
+        grid-row: 3;
+    }
+
+    /* Control pannel subgrid */
+    section:nth-child(3) > div:nth-child(5) {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "on-off  title         title"
+            "display cntrl-buttons slider";
+        align-items: center;
+        padding: 0 1em;
+    }
+
+    section:nth-child(3) > div:nth-child(5) > h1 {
+        grid-area: title;
+        align-self: center;
+        justify-self: center;
+    }
+
+    section:nth-child(3) > div:nth-child(5) > label:nth-of-type(1) {
+        grid-area: on-off;
+        align-self: center;
+        justify-self: center;
+    }
+
+    section:nth-child(3) > div:nth-child(5) > label:nth-of-type(2) {
+        grid-area: display;
+        align-self: center;
+        justify-self: center;
+    }
+
+    section:nth-child(3) > div:nth-child(5) > div:nth-of-type(1) {
+        grid-area: cntrl-buttons;
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section:nth-child(3) > div:nth-child(5) > div:nth-of-type(2) {
+        grid-area: slider;
+        display: flex;
+        align-items: center;
     }
 }
-@container style(--sound >= 25) {
-    section div:has(datalist) div {
+
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+@layer components {
+
+    /*  Top silver strip  */
+    main > section:nth-of-type(1) {
+        background-color: var(--color-panel-silver);
+        transition: background-color 0.6s ease;
+    }
+
+    /*  Wood side panels  */
+    main > section:nth-of-type(2) {
+        background-image:
+            repeating-linear-gradient(
+                0deg,
+                var(--color-wood-light) 0px,
+                var(--color-wood-light) 2px,
+                var(--color-wood-mid) 3px,
+                var(--color-wood-mid) 5px
+            ),
+            repeating-linear-gradient(
+                20deg,
+                var(--color-wood-dark) 0px,
+                var(--color-wood-dark) 1px,
+                var(--color-wood-mid) 2px,
+                var(--color-wood-mid) 4px
+            ),
+            linear-gradient(
+                to bottom,
+                var(--color-wood-mid)  0%,
+                var(--color-wood-deep) 50%,
+                var(--color-wood-mid)  100%
+            ),
+            linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.05) 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                transparent 51%
+            );
+        background-blend-mode: overlay;
+        box-shadow:
+            inset 0  4px 12px rgba(82, 60, 38, 0.7),
+            inset 0 -4px 10px rgba(95, 69, 45, 0.6),
+            0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /*  Main silver panel  */
+    main > section:nth-of-type(3) {
+        background-color: var(--color-panel-grey);
+        border-radius: 0 0 1em 1em;
+        transition: background-color 0.6s ease;
+    }
+
+    /*  Left + right long sides  */
+    section > div:nth-of-type(1),
+    section > div:nth-of-type(2) {
+        background-color: var(--color-panel-light);
+        transition: background-color 0.6s ease;
+    }
+
+    /*  Img bg  */
+    div:nth-of-type(3) {
+        background:
+            linear-gradient(
+                to bottom,
+                #ffffff59 0%,
+                #ffffff26 20%,
+                #ffffff0d 40%,
+                #0000000d 100%
+            ),
+            linear-gradient(to bottom right, #ffffff33, #00000033);
+        backdrop-filter: blur(.7px);
+        transition: background 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    /* CD img */
+    div:has(> img) img {
+        width: min(16em, 40vmin);
+        display: none;
+        
+        @media (width < 32em) {
+            width: min(20em, 40vmin);
+        }
+    }
+
+    /* Schuine stukjes */
+    div:nth-of-type(3) span:nth-of-type(1) {
+        background-color: var(--color-panel-strip);
+        position: absolute;
+        top: 0; bottom: 0; left: 0;
+        width: 8vmin;
+        transform-origin: left;
+        transform: skewY(-45deg);
+        clip-path: polygon(0% 0%, 100% 16%, 100% 100%, 0% 100%);
+    }
+
+    div:nth-of-type(3) span:nth-of-type(2) {
+        background-color: var(--color-panel-dark);
+        box-shadow:
+            inset 1px 8px 10px -5px rgba(0, 0, 0, 0.3),
+            inset 6px 0   8px -6px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 8vmin;
+        transform-origin: bottom;
+        transform: skewX(-45deg);
+        clip-path: polygon(0% 0%, 82.5% 0%, 100% 100%, 0% 100%);
+    }
+
+    /* Display */
+    div:nth-of-type(4) {
+        background-color: var(--color-panel-mid);
+        transition: background-color 0.6s ease;
+    }
+
+    /* Bottom control panel */
+    div:nth-of-type(5) {
+        background-color: var(--color-panel-bottom);
+        border-radius: 0 0 .5em .5em;
+        box-shadow:
+            0px 2px 10px 0 #00000066,
+            inset 0px  2px 6px #00000033,
+            inset 0px -2px 6px #00000026;
+        transition: background-color 0.6s ease;
+    }
+
+    /* Glass look */
+    section > span {
+        grid-column: 1 / 4;
+        grid-row: 1 / 3;
+        z-index: 22;
+        pointer-events: none;
+        background:
+            linear-gradient(
+                to bottom,
+                #ffffff33 0%,
+                #ffffff1a 20%,
+                #ffffff0d 50%,
+                transparent 100%
+            ),
+            linear-gradient(to bottom right, #ffffff22, #00000011);
+        backdrop-filter: blur(0.5px) brightness(1.02);
+        box-shadow:
+            inset 0  1px 0 #ffffff44,
+            inset 1px 0  0 #ffffff22;
+    }
+
+    /* CJ player */
+    section:nth-child(3) > div:nth-child(5) > h1 {
+        font-family: 'Bitcount Prop Single Ink', monospace;
+        font-size: 1.1em;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        display: flex;
+        align-items: baseline;
+        gap: 0;
+        color: rgb(55, 55, 55);
+        text-shadow:
+            0 1px 0 #ffffff88,
+            0 -1px 0 #00000033;
+        transition: color 0.4s ease, text-shadow 0.4s ease;
+    }
+
+    section:nth-child(3) > div:nth-child(5) > h1 > span {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+
+    /* Variables for letter animation */
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(1) { --i: 0; }
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(2) { --i: 1; }
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(3) { --i: 2; }
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(4) { --i: 3; }
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(5) { --i: 4; }
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(6) { --i: 5; }
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(7) { --i: 6; }
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(8) { --i: 7; }
+    section:nth-child(3) > div:nth-child(5) > h1 > span:nth-child(9) { --i: 8; }
+
+    /*  Buttons  */
+    input[type="checkbox"],
+    input[type="radio"] {
+        appearance: none;
+        display: block;
         width: 2em;
-        background-color: #ffff00;
+        aspect-ratio: 1;
+        background-color: var(--color-btn-default);
+        border-radius: 50%;
+        border: solid 1px var(--color-panel-grey);
+        box-shadow:
+            inset  .1em  .1em .3em #fff,
+            inset -.1em -.1em .3em #000,
+             .1em  .1em .3em #fff,
+             .1em -.1em .3em #000;
+        cursor: pointer;
+        transition: all 0.2s ease;
     }
-}
-@container style(--sound >= 50) {
-    section div:has(datalist) div {
-        width: 3em;
-        background-color: #e4ac12;
+
+    section:nth-child(3) > div:nth-child(5) > label:nth-of-type(1) input {
+        width: 2.5em;
     }
-}
-@container style(--sound >= 75) {
-    section div:has(datalist) div {
-        width: 4em;
-        background-color: #f07604;
+
+    /*  Range slider  */
+    input[type="range"] {
+        appearance: none;
+        background: transparent;
+        width: 7em;
+        cursor: pointer;
     }
-}
-@container style(--sound = 100) {
-    section div:has(datalist) div {
-        width: 5em;
-        background-color: #e12002;
+
+    /* Aan chatgpt gevraagd hoe je input type range stylet voor verschillende browsers https://chatgpt.com/share/69b2a973-0720-8002-858e-4c57c11bccf6 */
+    input[type="range"]::-webkit-slider-runnable-track {
+        height: 0.4em;
+        background: var(--color-panel-grey);
+        border-radius: 1em;
     }
-}
 
-h1 {
-    font-size: 1em;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(72, 72, 72);
-    position: absolute;
-
-    top: 32.5em;
-    left: calc(50% - 3em);
-}
-
-label[aria-label="cd-on-off"] {
-    position: absolute;
-
-    top: 32rem;
-    left: 9%;
-
-    input[type="checkbox"]{
-        width: 3em;
+    input[type="range"]::-moz-range-track {
+        height: 0.4em;
+        background: var(--color-panel-grey);
+        border-radius: 1em;
     }
-}
 
-label[aria-label="display-mode"] {
-    position: absolute;
-
-    top: 37.2rem;
-    left: 3%;
-
-    input[type="checkbox"]{
-        width: 1.5em;
+    input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        width: 1.4em;
+        height: 1.4em;
+        border-radius: 50%;
+        background: var(--color-btn-track);
+        margin-top: -0.4em;
+        box-shadow:
+            inset  .1em  .1em .3em #fff,
+            inset -.1em -.1em .3em #000,
+             .1em  .1em .3em #fff,
+             .1em -.1em .3em #000;
     }
-}
 
-input[type="radio"]{
-    width: 1.8em;
-}
+    input[type="range"]::-moz-range-thumb {
+        width: 1.2em;
+        height: 1.2em;
+        border-radius: 50%;
+        background: white;
+        border: 1px solid black;
+    }
 
-label[aria-label="prev-one"] {
-    position: absolute;
+    /*  Songtitle display  */
+    div:has(p) div {
+        width: 11em;
+        height: 1.2em;
+        overflow: clip;
+        background-color: var(--color-display-bg);
+        transition: 200ms;
+        display: none;
+        flex-grow: 1;
+    }
 
-    top: 37em;
-    left: 36%;
-}
+    div:has(p) div p {
+        font-size: .9em;
+        padding: 0;
+        margin: 0;
+        font-family: "Bitcount Grid Double";
+        color: var(--color-display-text);
+        white-space: nowrap;
+        display: none;
+        font-weight: 200;
+        animation: titlemove 12s steps(30) infinite;
+        animation-play-state: paused;
+    }
 
+    /*  Volume bar  */
+    section:nth-child(3) > div:nth-child(4) > div:nth-child(2) {
+        height: 0.7em;
+        border-radius: 2px;
+        background-color: var(--color-volume-low);
+        transform-origin: left;
+        transition: 0.2s ease;
+        display: none;
+        width: 3.5em;
+        scale: calc(.2 + .8 * var(--sound) / 100) 1;
+    }
 
-label[aria-label="next-one"] {
-    position: absolute;
+    /* Volume color container style queries */
+    @container style(--sound <= 25) {
+        section:nth-child(3) > div:nth-child(4) > div:nth-child(2) {
+            background-color: var(--color-volume-low);
+        }
+    }
 
-    top: 37em;
-    left: 55%;
-}
+    @container style(--sound >= 25) {
+        section:nth-child(3) > div:nth-child(4) > div:nth-child(2) {
+            background-color: var(--color-volume-mid-low);
+        }
+    }
 
+    @container style(--sound >= 50) {
+        section:nth-child(3) > div:nth-child(4) > div:nth-child(2) {
+            background-color: var(--color-volume-mid);
+        }
+    }
 
-label[aria-label="play-pause"] {
-    position: absolute;
+    @container style(--sound >= 75) {
+        section:nth-child(3) > div:nth-child(4) > div:nth-child(2) {
+            background-color: var(--color-volume-high);
+        }
+    }
 
-    top: 37em;
-    left: calc(50% - 1.3em);
-}
-
-
-input[type="range"] {
-    appearance: none;
-    background: transparent;
-    width: 7em;
-
-
-}
-
-label[aria-label="volume"] {
-    width: 5em;
-    position: absolute;
-
-    top: 37em;
-    left: 72%;
-}
-
-input[type="range"] {
-    cursor: pointer;
-
-}
-
-/* Aan chatgpt gevraagd hoe je input type range stylet voor verschillende browsers https://chatgpt.com/share/69b2a973-0720-8002-858e-4c57c11bccf6 */
-input[type="range"]::-webkit-slider-runnable-track {
-    height: 0.4em;
-    background: grey;
-    border-radius: 1em;
-}
-
-input[type="range"]::-moz-range-track {
-    height: 0.4em;
-    background: grey;
-    border-radius: 1em;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    width: 1.4em;
-    height: 1.4em;
-    border-radius: 50%;
-    background: #ddd;
-    box-shadow:
-        inset .1em .1em .3em #fff,
-        inset -.1em -.1em .3em #000,
-        .1em .1em .3em #fff,
-        .1em -.1em .3em #000;
-
-        margin-top: -0.4em; 
-
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 1.2em;
-    height: 1.2em;
-    border-radius: 50%;
-    background: white;
-    border: 1px solid black;
-}
-
-section div:has(p) {
-    position: relative;
-    width: 18em;  
-    height: 1.5em;   
-    overflow: hidden; 
-    background-color: #282828;
-    z-index: 99999;
-
-    top: 28em;
-    left: 7%;;
-    
-}
-
-section div:has(p) p {
-    font-family: "Bitcount Grid Double";
-    color: rgb(1, 195, 1);
-    position: absolute;
-    white-space: nowrap;
-    display: inline-block;
-    padding-left: 100%; 
-    animation: titlemove 7s linear infinite;
-    animation-play-state: paused;
-    display: none;
-    font-weight: 200;
-}
-
-@keyframes titlemove {
-    to {
-        transform: translateX(-100%);
+    @container style(--sound = 100) {
+        section:nth-child(3) > div:nth-child(4) > div:nth-child(2) {
+            background-color: var(--color-volume-max);
+        }
     }
 }
 
-section:has(label[aria-label="cd-on-off"] input:checked) img, 
-section:has(label[aria-label="cd-on-off"] input:checked) div:has(p) p {
-    display: block;
-}
+/* ============================================================
+   STATES
+   ============================================================ */
 
-section:has(label[aria-label="cd-on-off"] input:checked) img {
-    display: block;
-}
-
-@keyframes slideInTop {
-    0% {
-        transform: translateY(-30em);
-        opacity: 0;
+@layer states {
+    input[type="checkbox"]:checked,
+    input[type="radio"]:checked {
+        background-color: var(--color-btn-default);
+        box-shadow:
+            inset  .05em  .05em .15em #000,
+            inset -.05em -.05em .15em #fff,
+             .1em  .1em .3em #fff,
+             .1em -.1em .3em #000;
     }
-    100% {
-        transform: translateY(0); 
-        opacity: 1; 
+
+    input[type="range"]:active::-webkit-slider-thumb {
+        background-color: var(--color-btn-default);
+        box-shadow:
+            inset  .05em  .05em .15em #000,
+            inset -.05em -.05em .15em #fff,
+             .1em  .1em .3em #fff,
+             .1em -.1em .3em #000;
     }
-}
 
+    section:nth-child(3):has(div:nth-child(5) > :nth-child(2) input:checked) > div:nth-child(4) {
+        display: flex;
+        align-content: center;
+        gap: .5rem;
+        flex-wrap: nowrap;
+        align-items: end;
+        flex-grow: 1;
+        padding: .3em;
+    }
 
-/* lange strook langs display zijkant */
-section > div:nth-of-type(6) {
-    position: absolute;
-    width: 30em;    
-    height: .8em;
-    background-color: rgb(163 163 163);
-    top: 14.6em;
-    left: -14.6em;
-    rotate: 90deg;
-    box-shadow: 0px 0 6px -1px rgba(0, 0, 0, 0.498);
-    z-index: -4;
-}
+    section:nth-child(3):has(div:nth-child(5) > :nth-child(2) input:checked) img,
+    section:nth-child(3):has(div:nth-child(5) > :nth-child(2) input:checked) div:has(p) p,
+    section:nth-child(3):has(div:nth-child(5) > :nth-child(2) input:checked) div:has(p) div {
+        display: block;
+    }
 
-/* display */
-section > div:nth-of-type(7) {
-    position: absolute;
-    width: 25.2em;    
-    height: 6em;
-    background-color: rgb(128 127 127);
-    top: 25.5em;
-    left: .8em;
-    z-index: -6;
-}
+    section:nth-child(3):has(div:nth-child(5) > :nth-child(2) input:checked) > div:nth-child(4) > div:nth-child(2) {
+        display: block;
+    }
 
-/* glazen bg */
-section > div:nth-of-type(8) {
-    position: absolute;
-    width: 25.2em;    
-    height: 30em;
-    top: 0em;
-    left: .8em;
-    z-index: 999999;
+    section:nth-child(3):has(div:nth-child(5) > :nth-child(2) input:checked) div:has(> img) {
+        animation-play-state: running;
+    }
 
+    section:nth-child(3):has(div:nth-child(5) > :nth-child(2) input:checked):has(div:nth-child(5) > div:nth-child(4) > :nth-child(2) input:checked) div:has(> img) img {
+        animation-play-state: running;
+    }
 
-    background: 
-    linear-gradient(
-        to bottom,
-        #ffffff59 0%,
-        #ffffff26 20%,
-        #ffffff0d 40%,
-        #0000000d 100%
-    ),
-    linear-gradient(
-        to bottom right,
-        #ffffff33,
-        #00000033
-    );
+    section:nth-child(3):has(div:nth-child(5) > :nth-child(2) input:checked):has(div:nth-child(5) > div:nth-child(4) > :nth-child(2) input:checked) div:has(p) p {
+        animation-play-state: running;
+    }
 
-    backdrop-filter: blur(.7px);  
+    /* Prev track */
+    section:nth-child(3):has(div:nth-child(5) > div:nth-child(4) > :nth-child(1) input:checked) div:has(> img) img:nth-child(2),
+    section:nth-child(3):has(div:nth-child(5) > div:nth-child(4) > :nth-child(1) input:checked) p:nth-child(2) {
+        display: none;
+    }
 
-}
+    /* Next track */
+    section:nth-child(3):has(div:nth-child(5) > div:nth-child(4) > :nth-child(3) input:checked) div:has(> img) img:nth-child(1),
+    section:nth-child(3):has(div:nth-child(5) > div:nth-child(4) > :nth-child(3) input:checked) p:nth-child(1) {
+        display: none;
+    }
 
+    /* =================================
+       JAM MODE
+       ================================= */
 
-section > div:nth-of-type(8)::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) body {
+        background: #0a0010;
+    }
+    /* Background  spiral*/
 
-    background: linear-gradient(
-        to bottom,
-        #ffffff1f 0%, 
-        #ffffff14 30%,
-        transparent 100%
+        :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) body::before {
+        content: '';
+        position: fixed;
+        inset: -100%;
+        width: 300%;
+        height: 300%;
+        background: repeating-conic-gradient(
+            from 0deg at 50% 50%,
+            #ff006e   0deg,
+            #fb5607  30deg,
+            #ffbe0b  60deg,
+            #3a86ff  90deg,
+            #8338ec 120deg,
+            #06d6a0 150deg,
+            #ff006e 180deg
         );
+        animation: spiral 4s linear infinite;
+        z-index: -1;
+        opacity: 0.4;
+        pointer-events: none;
+    }
 
-    pointer-events: none;
+    /* Spinning spiral conic on the wood panel */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) main > section:nth-of-type(2) {
+        background-image: conic-gradient(
+            from 0deg at 50% 50%,
+            #ff006e, #fb5607, #ffbe0b, #3a86ff, #8338ec, #06d6a0, #ff006e
+        );
+        box-shadow: 0 0 40px #ff006e66, 0 0 80px #8338ec44;
+    }
+
+    /* Player panel goes dark + neon edge */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) main > section:nth-of-type(3) {
+        background-color: #12001f;
+    }
+
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) main > section:nth-of-type(1) {
+        background-color: #1a0030;
+    }
+
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) section > div:nth-of-type(1),
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) section > div:nth-of-type(2) {
+        background-color: #200040;
+    }
+
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) div:nth-of-type(4) {
+        background-color: #160030;
+    }
+
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) div:nth-of-type(5) {
+        background-color: #12001f;
+    }
+
+    /* Schuine stukjes color */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) div:nth-of-type(3) span:nth-of-type(1) {
+        background-color: #ff006e;
+    }
+
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) div:nth-of-type(3) span:nth-of-type(2) {
+        background-color: #8338ec;
 }
 
-/* skewed stukje boven display */
-section > div:nth-of-type(9) {
-    position: relative;
-    background-color: rgb(88, 85, 83);
-    width: 25.2em;    
-    height: 2.5em;
-    top: 23em;
-    left: 2em;
-    transform: skew(-45deg);
-    z-index: 0;
-    overflow: hidden;
+    /* CD img bg*/
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) div:nth-of-type(3) {
+        background:
+            linear-gradient(135deg, #ff006e18 0%, #8338ec18 50%, #3a86ff18 100%);
+        box-shadow:
+            inset 0 0 30px #8338ec44,
+            0 0 20px #ff006e55;
+    }
 
-    /* box-shadow: 10px 10px -1px 10px rgba(255, 255, 255, 0.696); */
-    box-shadow: 
-        inset 1px 8px 10px -5px rgba(0, 0, 0, 0.3),
-        inset 6px 0 8px -6px rgba(0, 0, 0, 0.2);   ;
+    /* CD player bounce */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) main {
+        animation: playerBounce 0.45s ease-in-out infinite;
+    }
 
-    clip-path:
-    polygon(
-        0% 0%, 
-        90.2% 0%, 
-        100% 100%, 
-        0% 100%
-    );
+    /* CD spin change and color */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) div:has(> img) img {
+        animation: spinWild 0.35s linear infinite;
+        filter: saturate(2) brightness(1.3);
+    }
 
+    /* Cj player letters bounce  --i */
+    /* bron voor inspiratie van animation delay https://css-irl.info/quick-tip-negative-animation-delay/ */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked)
+        section:nth-child(3) > div:nth-child(5) > h1 > span {
+        animation:
+            letterBounce  0.4s ease-in-out infinite alternate,
+            rainbowShift  1.5s linear infinite;
+        animation-delay:
+            calc(var(--i) * 0.06s),
+            calc(var(--i) * -0.18s);
+        color: transparent;
+        background: linear-gradient(90deg, #ff006e, #fb5607, #ffbe0b, #3a86ff, #8338ec, #06d6a0);
+        background-size: 400% 100%;
+        background-clip: text;
+    }
+
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked)
+        section:nth-child(3) > div:nth-child(5) > h1 {
+        font-size: 1.3em;
+        text-shadow: none;
+    }
+
+    /* Display song title */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) div:has(p) div p {
+        color: #ff006e;
+        animation:
+            titlemove   5s steps(30) infinite,
+            neonFlicker 0.12s steps(1) infinite;
+    }
+
+    /* Buttons */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) input[type="checkbox"],
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked) input[type="radio"] {
+        animation: buttonPulse 0.8s ease-in-out infinite;
+    }
+
+    /* Volume bar */
+    :root:has(section > div:nth-child(5) > label:nth-of-type(2) > input:checked)
+        section:nth-child(3) > div:nth-child(4) > div:nth-child(2) {
+        animation: volumeRave 0.25s steps(1) infinite;
+    }
 }
 
-/* stukje naast display */
-section > div:nth-of-type(10) {
-    position: absolute;
-    background-color: rgb(118, 118, 118);
-    width: 3.3em;    
-    height: 26.5em;
-    top: 0em;
-    left: 0em;
-    z-index: -5;
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
 
+@layer animations {
+
+    /* Normal spin */
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Jam spin*/
+    @keyframes spinWild {
+        0%  { 
+            transform: rotate(0deg) scale(1);
+        }
+        25%  { 
+            transform: rotate(90deg)  scale(1.05); 
+        }
+        50%  { 
+            transform: rotate(180deg) scale(0.95); 
+        }
+        75%  { 
+            transform: rotate(270deg) scale(1.05); 
+        }
+        100% { 
+            transform: rotate(360deg) scale(1);    
+        }
+    }
+
+    /* CD img slides down from top */
+    @keyframes slideInTop {
+        0%   { transform: translateY(-30em); opacity: 0; }
+        100% { transform: translateY(0);     opacity: 1; }
+    }
+
+    /* Song title scroll */
+    @keyframes titlemove {
+        0%   { transform: translateX(100%);  }
+        97%  { transform: translateX(-100%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    /* Jam bg spiral */
+   @keyframes spiral {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+    }
+
+    /* Cd player bounce */
+    @keyframes playerBounce {
+        0%   { transform: translateY(0)    rotate(0deg);    scale: 1.2; }
+        20%  { transform: translateY(-5px) rotate(-0.4deg); scale: 1.2; }
+        40%  { transform: translateY(2px)  rotate(0.2deg);  scale: 1.2; }
+        60%  { transform: translateY(-3px) rotate(0.4deg);  scale: 1.2; }
+        80%  { transform: translateY(1px)  rotate(-0.2deg); scale: 1.2; }
+        100% { transform: translateY(0)    rotate(0deg);    scale: 1.2; }
+    }
+
+    /* Jam Cjplayer animation */
+    @keyframes letterBounce {
+        from { transform: translateY(0px)  rotate(-3deg) scale(1);    }
+        to   { transform: translateY(-5px) rotate(3deg)  scale(1.15); }
+    }
+
+    /* Jam rainbow gradient  */
+    @keyframes rainbowShift {
+        from { background-position: 0%   50%; }
+        to   { background-position: 400% 50%; }
+    }
+
+    /* Jam song title flicker */
+    @keyframes neonFlicker {
+        0%, 18%, 22%, 25%, 53%, 57%, 100% {
+            color: #ff006e;
+            text-shadow: 0 0 4px #ff006e, 0 0 8px #ff006e88;
+        }
+        
+        19%, 21%, 54%, 56%, 80%, 99% {
+            color: #ffbe0b;
+        }
+    }
+
+    /* Buttons glow */
+    @keyframes buttonPulse {
+        0%   { 
+            box-shadow: 
+            inset .1em .1em .3em #fff, 
+            inset -.1em -.1em .3em #000, 
+            0 0 8px  #ff006e, 
+            0 0 16px #ff006e66; 
+        }
+
+        33%  { 
+            box-shadow: inset .1em .1em .3em #fff,
+            inset -.1em -.1em .3em #000, 
+            0 0 8px  #3a86ff, 
+            0 0 16px #3a86ff66; 
+        }
+
+        66%  { 
+            box-shadow: inset .1em .1em .3em #fff, 
+            inset -.1em -.1em .3em #000, 
+            0 0 8px  #8338ec, 
+            0 0 16px #8338ec66; 
+        }
+
+        100% { 
+            box-shadow: inset .1em .1em .3em #fff, 
+            inset -.1em -.1em .3em #000, 
+            0 0 8px  #ff006e, 
+            0 0 16px #ff006e66; 
+        }
+    }
+
+    /* Volume bar */
+    @keyframes volumeRave {
+        0%   { background-color: #ff006e; }
+        17%  { background-color: #fb5607; }
+        33%  { background-color: #ffbe0b; }
+        50%  { background-color: #3a86ff; }
+        67%  { background-color: #8338ec; }
+        83%  { background-color: #06d6a0; }
+        100% { background-color: #ff006e; }
+    }
 }
-
-/* lid */
-section > div:nth-of-type(11) {
-    position: absolute;
-    background-color: rgb(148, 148, 148);
-    width: 31em;    
-    height:.6em;
-    top: -.1em;
-    left: -2.5em;
-    z-index: 999999;
-}
-
-section > div:nth-of-type(12) {
-    position: absolute;
-    background-color: rgb(215, 215, 215);
-    width: 4.5em;    
-    height: 4.5em;
-    border-radius: 50%;
-    top: 9.3em;
-    left: 12.1em;
-
-    box-shadow: 
-    inset 0.3em 0.3em 0.6em rgba(0,0,0,0.4),
-    inset -0.3em -0.3em 0.6em rgba(255,255,255,0.5);
-    /* z-index: 9; */
-}
-
-section > div:nth-of-type(13) {
-    position: absolute;
-    background-color: rgb(155, 155, 155);
-    width: 2.2em;    
-    height: 2.2em;
-    border-radius: 50%;
-    top: 10.4em;
-    left: 13.2em;
-    /* z-index: 9; */
-    box-shadow: 
-    0.1em 0.1em 0.2em rgba(0,0,0,0.4),  
-    inset 0 -0.1em 0.1em rgba(0,0,0,0.2); 
-}
-
-/* control panel */
-section > div:last-child {
-    position: absolute;
-    width: 26em;  
-    height: 9.3em;   
-    background-color: #bababa;
-    z-index: -2;
-
-    top: 30em;
-    left: 0;
-
-    box-shadow: 
-        0px 2px 10px 0 #00000066,  
-        inset 0px 2px 6px #00000033,  
-        inset 0px -2px 6px #00000026;
-}
-
-
-
-section:has(label[aria-label="prev-one"] input:checked) img:nth-of-type(2),
-section:has(label[aria-label="prev-one"] input:checked) p:nth-of-type(2) {
-    display: none;
-}
-
-section:has(label[aria-label="next-one"] input:checked) img:nth-of-type(1),
-section:has(label[aria-label="next-one"] input:checked) p:nth-of-type(1) {
-    display: none;
-}
-/* section:has(label[aria-label="display-mode"] input:checked) img {
-
-}  */
-
